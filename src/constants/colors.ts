@@ -11,10 +11,10 @@ export const lightColor: colorType = {
 };
 export const darkColor: colorType = {
   primary: "#2D9CFF",
-  primary_50: "#007AFF80",
+  primary_50: "#007aff4d",
   background: "#000",
   foreground: "#fff",
   button_primary_background: "#2C2C2C",
   button_main_background: "#007AFF",
-  button_secondary_background: "#f6f6f6",
+  button_secondary_background: "#ffffff14",
 };
