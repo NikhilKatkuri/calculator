@@ -1,9 +1,17 @@
+import useSize from "@/src/helpers/useSize";
 import Theme from "@/src/theme/theme";
 import { useState } from "react";
-import { Button, StatusBar, Text, View } from "react-native";
+import {
+  Button,
+  StatusBar,
+  Text,
+  TouchableWithoutFeedback,
+  View,
+} from "react-native";
 
 export default function Index() {
   const [theme, setTheme] = useState(new Theme(false));
+  const size = new useSize();
   return (
     <>
       <StatusBar
@@ -13,30 +21,237 @@ export default function Index() {
       <View
         style={{
           flex: 1,
-          justifyContent: "center",
+          justifyContent: "flex-end",
           alignItems: "center",
           backgroundColor: theme.colors.background,
-          gap: 5,
+          paddingBottom: 32,
         }}
       >
-        <Text
+        <Button
+          onPress={() => setTheme(new Theme(!theme.dark))}
+          title="Toggle Theme"
+        />
+        <View
           style={{
-            fontSize: 24,
-            fontWeight: "bold",
-            color: theme.colors.foreground,
+            paddingVertical: 16,
+            width: size.wp(0.95),
+            maxWidth: 400,
+            paddingHorizontal: 0,
+            alignSelf: "center",
           }}
         >
-          A calculator app
-        </Text>
-        <Text style={{ color: theme.colors.button_secondary_background }}>
-          built with Expo
-        </Text>
-        <Button
-          onPress={() => {
-            setTheme(new Theme(!theme.dark));
-          }}
-          title="toggle"
-        />
+          <View
+            style={{
+              paddingTop: 24,
+              borderTopWidth: 2,
+              borderColor: theme.colors.button_secondary_background,
+              width: "100%",
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "space-between",
+              marginTop: 8,
+              gap: 12,
+            }}
+          >
+            {["C", "X", "%", "/"].map((label) => (
+              <TouchableWithoutFeedback key={label}>
+                <View
+                  style={{
+                    paddingVertical: 16,
+                    paddingHorizontal: 24,
+                    borderRadius: 16,
+                    backgroundColor:
+                      label === "%" || label === "/"
+                        ? theme.colors.primary_50
+                        : theme.colors.button_primary_background,
+                    alignItems: "center",
+                    justifyContent: "center",
+                    minWidth: 56,
+                  }}
+                >
+                  <Text
+                    style={{
+                      color:
+                        label === "%" || label === "/"
+                          ? theme.colors.primary
+                          : theme.colors.foreground,
+                      fontSize: 26,
+                      fontWeight: "600",
+                    }}
+                  >
+                    {label}
+                  </Text>
+                </View>
+              </TouchableWithoutFeedback>
+            ))}
+          </View>
+          <View
+            style={{
+              width: "100%",
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "space-between",
+              marginTop: 8,
+              gap: 12,
+            }}
+          >
+            {["7", "8", "9", "*"].map((label, index) => (
+              <TouchableWithoutFeedback key={label}>
+                <View
+                  style={{
+                    paddingVertical: 16,
+                    paddingHorizontal: 24,
+                    borderRadius: 16,
+                    backgroundColor:
+                      index === 3
+                        ? theme.colors.primary_50
+                        : theme.colors.button_primary_background,
+                    alignItems: "center",
+                    justifyContent: "center",
+                    minWidth: 56,
+                  }}
+                >
+                  <Text
+                    style={{
+                      color:
+                        index === 3
+                          ? theme.colors.primary
+                          : theme.colors.foreground,
+                      fontSize: 26,
+                      fontWeight: "600",
+                    }}
+                  >
+                    {label}
+                  </Text>
+                </View>
+              </TouchableWithoutFeedback>
+            ))}
+          </View>
+          <View
+            style={{
+              width: "100%",
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "space-between",
+              marginTop: 8,
+              gap: 12,
+            }}
+          >
+            {["4", "5", "6", "-"].map((label, index) => (
+              <TouchableWithoutFeedback key={label}>
+                <View
+                  style={{
+                    paddingVertical: 16,
+                    paddingHorizontal: 24,
+                    borderRadius: 16,
+                    backgroundColor:
+                      index === 3
+                        ? theme.colors.primary_50
+                        : theme.colors.button_primary_background,
+                    alignItems: "center",
+                    justifyContent: "center",
+                    minWidth: 62,
+                  }}
+                >
+                  <Text
+                    style={{
+                      color:
+                        index === 3
+                          ? theme.colors.primary
+                          : theme.colors.foreground,
+                      fontSize: 26,
+                      fontWeight: "600",
+                    }}
+                  >
+                    {label}
+                  </Text>
+                </View>
+              </TouchableWithoutFeedback>
+            ))}
+          </View>
+          <View
+            style={{
+              width: "100%",
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "space-between",
+              marginTop: 8,
+              gap: 12,
+            }}
+          >
+            {["1", "2", "3", "+"].map((label, index) => (
+              <TouchableWithoutFeedback key={label}>
+                <View
+                  style={{
+                    paddingVertical: 16,
+                    paddingHorizontal: 24,
+                    borderRadius: 16,
+                    backgroundColor:
+                      index === 3
+                        ? theme.colors.primary_50
+                        : theme.colors.button_primary_background,
+                    alignItems: "center",
+                    justifyContent: "center",
+                    minWidth: 56,
+                  }}
+                >
+                  <Text
+                    style={{
+                      color:
+                        index === 3
+                          ? theme.colors.primary
+                          : theme.colors.foreground,
+                      fontSize: 26,
+                      fontWeight: "600",
+                    }}
+                  >
+                    {label}
+                  </Text>
+                </View>
+              </TouchableWithoutFeedback>
+            ))}
+          </View>
+          <View
+            style={{
+              width: "100%",
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "space-between",
+              marginTop: 8,
+              gap: 12,
+            }}
+          >
+            {["0", ".", "="].map((label, index) => (
+              <TouchableWithoutFeedback key={label}>
+                <View
+                  style={{
+                    paddingVertical: 16,
+                    paddingHorizontal: 24,
+                    borderRadius: 16,
+                    width: index === 0 ? "45%" : 56,
+                    backgroundColor:
+                      index === 2
+                        ? theme.colors.primary
+                        : theme.colors.button_primary_background,
+                    alignItems: "center",
+                    justifyContent: "center",
+                    minWidth: 64,
+                  }}
+                >
+                  <Text
+                    style={{
+                      color: index === 2 ? "#fff" : theme.colors.foreground,
+                      fontSize: 26,
+                      fontWeight: "600",
+                    }}
+                  >
+                    {label}
+                  </Text>
+                </View>
+              </TouchableWithoutFeedback>
+            ))}
+          </View>
+        </View>
       </View>
     </>
   );
